@@ -6,6 +6,7 @@ import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.UiController
 import androidx.test.espresso.ViewAction
 import androidx.test.espresso.action.ViewActions.click
+import androidx.test.espresso.action.ViewActions.replaceText
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.runner.AndroidJUnit4
@@ -16,6 +17,7 @@ import es.jarroyo.revolut.ui.currencyList.activity.CurrencyListActivity
 import es.jarroyo.revolut.ui.utils.RecyclerViewMatcher
 import es.jarroyo.revolut.utils.TestNetworkSystem
 import org.hamcrest.CoreMatchers.allOf
+import org.hamcrest.CoreMatchers.not
 import org.hamcrest.Matcher
 import org.junit.Before
 import org.junit.Rule
@@ -78,6 +80,32 @@ class CurrencyListActivityTest {
 
         onView(withRecyclerView(R.id.fragment_currency_list_rv).atPosition(0))
             .check(matches(hasDescendant(withText(TestCurrencyListFactory.FIRST_RATE_CURRENCY_NAME))))
+    }
+
+    @Test
+    fun GIVEN_favourite_currency_EUR_WHEN_try_to_edit_amount_THEN_pos0_enabled_rest_not_enabled() {
+        mActivityRule.launchActivity()
+
+        onView(withRecyclerView(R.id.fragment_currency_list_rv)
+            .atPositionOnView(0, R.id.item_rv_currency_et_amount))
+            .check(matches(isEnabled()))
+
+        onView(withRecyclerView(R.id.fragment_currency_list_rv)
+            .atPositionOnView(1, R.id.item_rv_currency_et_amount))
+            .check(matches(not(isEnabled())))
+    }
+
+    @Test
+    fun GIVEN_favourite_currency_EUR_WHEN_change_amount_to_convert_THEN_updated_rest_of_currencies_with_its_equivalence() {
+        mActivityRule.launchActivity()
+
+        onView(withRecyclerView(R.id.fragment_currency_list_rv)
+            .atPositionOnView(0, R.id.item_rv_currency_et_amount))
+            .perform(replaceText("10"))
+
+        onView(withRecyclerView(R.id.fragment_currency_list_rv)
+            .atPositionOnView(1, R.id.item_rv_currency_et_amount))
+            .check(matches(withText("16.17")))
     }
 
     fun withRecyclerView(recyclerViewId: Int): RecyclerViewMatcher {
