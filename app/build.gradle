@@ -26,20 +26,23 @@ android {
             buildConfigField STRING, "REVOLUT_URL_BASE", '"https://revolut.duckdns.org/"'
 
             buildConfigField STRING, "NOTIFICATION_CHANNEL_ALARMS_ID", '"NOTIFICATION_CHANNEL_ALARMS_ID"'
-            buildConfigField STRING, "NOTIFICATION_CHANNEL_ALARMS_NAME", '"Books Alarms"'
+            buildConfigField STRING, "NOTIFICATION_CHANNEL_ALARMS_NAME", '"Revolut Alarms"'
         }
 
         debug {
+            resValue "string", "app_name_gradle", "RevCurr Debug"
             testCoverageEnabled = true
             applicationIdSuffix '.debug'
         }
 
         release {
+            resValue "string", "app_name_gradle", "Revolut"
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
 
         mock {
+            resValue "string", "app_name_gradle", "RevCurr Mock"
             initWith debug
             applicationIdSuffix = ".mock"
         }
