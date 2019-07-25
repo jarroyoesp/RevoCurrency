@@ -9,7 +9,7 @@ To async tasks it has been decided to use Kotlin coroutines.
 
 # UseCases
 
-1) GetFavouriteCurrency: get from local (cache or disk - room) the favourite currency of user. You can change it clicking on the different currencies when rates are shown.
+1) GetFavouriteCurrency: get user's favourite currency from local (cache or disk - room). You can change it clicking on the different currencies when rates are shown.
 
 2) GetCurrencyList: get currency rates for a base currency (your favourite)
 
