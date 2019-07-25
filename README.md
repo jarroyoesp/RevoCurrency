@@ -31,3 +31,7 @@ To async tasks it has been decided to use Kotlin coroutines.
 * [Espresso](https://developer.android.com/training/testing/espresso/index.html)
 * [Leak Canary](https://github.com/square/leakcanary)
 
+# Screenshots
+
+<img src="https://github.com/jarroyoesp/RevolutCurrency/blob/master/images/currency_list.png" width="200">
+
