@@ -5,6 +5,7 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import es.jarroyo.revolut.R
 import es.jarroyo.revolut.domain.model.currency.Currency
@@ -90,6 +91,7 @@ class CurrencyListRVAdapter(
 
             // TITLE
             item_rv_currency_tv_name.text = currency.currencyName
+            item_rv_currency_et_amount.setTextColor(ContextCompat.getColor(context, R.color.colorPrimary))
             if (item_rv_currency_et_amount.text.isNullOrEmpty()) {
                 item_rv_currency_et_amount.setText(amount.toString())
             }
@@ -129,6 +131,7 @@ class CurrencyListRVAdapter(
 
             // TITLE
             item_rv_currency_tv_name.text = currency.currencyName
+            item_rv_currency_et_amount.setTextColor(ContextCompat.getColor(context, R.color.gray))
             item_rv_currency_iv_flag.loadRoundedUrl(context, currency.flagDrawable)
 
             item_rv_currency_et_amount.isEnabled = false
