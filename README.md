@@ -19,6 +19,7 @@ To async tasks it has been decided to use Kotlin coroutines.
 ## Languages, libraries and tools used
 
 * [Kotlin](https://kotlinlang.org/)
+* [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel)
 * [Stable Kotlin Coroutines (1.3)](https://github.com/Kotlin/kotlinx.coroutines)
 * [Room](https://developer.android.com/topic/libraries/architecture/room.html)
 * [Android Architecture Components](https://developer.android.com/topic/libraries/architecture/index.html)
