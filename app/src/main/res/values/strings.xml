@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Revolut Currency</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="retry">Retry</string>
+    <string name="loading">Loading</string>
+    <string name="search">Search</string>
+
+    <string name="updating_data">Updating data...</string>
+    <string name="try_again">Try again</string>
+    <string name="task_list_empty">Empty data</string>
+    <string name="error_generic">Something was wrong getting curency data.</string>
+    <string name="books_search_not_found">Uhhhm.... sorry no results found</string>
+</resources>
