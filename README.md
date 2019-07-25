@@ -1,6 +1,4 @@
-# Google Books App
-This is an example of Android application using TDD and MVVM design pattern to search books using Google APIS.
-It is written 100% in Kotlin with both UI and Unit tests 
+# Revolut currency 
 
 ## Languages, libraries and tools used
 
@@ -15,10 +13,4 @@ It is written 100% in Kotlin with both UI and Unit tests
 * [Gson](https://github.com/google/gson)
 * [Mockito](http://site.mockito.org/)
 * [Espresso](https://developer.android.com/training/testing/espresso/index.html)
-* [AndroidPlot](https://github.com/halfhp/androidplot)
-
-## References
-
-* [BufferApp](https://github.com/bufferapp/android-clean-architecture-boilerplate)
-* [Android-architecture](https://github.com/dmytrodanylyk/android-architecture)
 
