@@ -13,4 +13,5 @@
     <string name="error_generic">Something was wrong getting currency data.</string>
     <string name="currency_search_not_found">Uhhhm.... sorry no results found</string>
     <string name="be_careful_your_rates_are_not_updated">Be careful, your rates are not updated!</string>
+    <string name="error_no_internet">Please, check your internet connection</string>
 </resources>
