@@ -12,7 +12,7 @@ import javax.inject.Singleton
 class RepositoryModule {
     @Provides
     @Singleton
-    fun provideBooksRepository(
+    fun provideCurrencyRepository(
         cacheDataSource: CacheDataSource,
         diskDataSource: DiskDataSource,
         networkDataSource: INetworkDataSource

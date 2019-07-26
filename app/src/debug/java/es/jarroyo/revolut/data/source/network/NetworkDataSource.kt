@@ -21,10 +21,10 @@ class NetworkDataSource(val context: Context, private val networkSystem: Network
     INetworkDataSource(networkSystem) {
 
     /**
-     * GET BOOKS LIST
+     * GET CURRENCY LIST
      */
     override suspend fun getCurrencyList(query: String): Response<CurrencyListResponse> {
-        val revolutCurrencyAPI = initRetrofitGoogleBooksAPI()
+        val revolutCurrencyAPI = initRetrofitRevolutAPI()
         try {
             val response =
                 revolutCurrencyAPI.getCurrencyList(query)
@@ -43,7 +43,7 @@ class NetworkDataSource(val context: Context, private val networkSystem: Network
     }
 
 
-    private fun initRetrofitGoogleBooksAPI(): RevolutCurrencyAPI {
+    private fun initRetrofitRevolutAPI(): RevolutCurrencyAPI {
         val retrofit = Retrofit.Builder().apply {
             baseUrl(BuildConfig.REVOLUT_URL_BASE)
             client(okHttpClient)
@@ -51,8 +51,8 @@ class NetworkDataSource(val context: Context, private val networkSystem: Network
             addCallAdapterFactory(CoroutineCallAdapterFactory())
         }.build()
 
-        val googleBooksAPI = retrofit.create(RevolutCurrencyAPI::class.java)
-        return googleBooksAPI
+        val revolutAPI = retrofit.create(RevolutCurrencyAPI::class.java)
+        return revolutAPI
     }
 
 
