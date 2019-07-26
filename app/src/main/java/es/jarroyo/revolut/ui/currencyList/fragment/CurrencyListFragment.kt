@@ -22,6 +22,7 @@ import es.jarroyo.revolut.domain.model.currency.Currency
 import es.jarroyo.revolut.domain.model.currency.CurrencyListResponse
 import es.jarroyo.revolut.ui.base.BaseFragment
 import es.jarroyo.revolut.ui.base.snackBar
+import es.jarroyo.revolut.ui.base.toast
 import es.jarroyo.revolut.ui.currencyList.fragment.adapter.CurrencyListRVAdapter
 import es.jarroyo.revolut.ui.currencyList.fragment.adapter.ItemAmount
 import es.jarroyo.revolut.ui.currencyList.fragment.adapter.ItemCurrency
@@ -103,8 +104,8 @@ class CurrencyListFragment : BaseFragment() {
         mCurrencyViewModel.getFavouriteCurrency()
     }
 
-    private fun getCurrencyRates(query: String) {
-        mCurrencyViewModel.getCurrencyList(query)
+    private fun getCurrencyRates(currency: Currency) {
+        mCurrencyViewModel.getCurrencyList(currency)
     }
 
     /****************************************************************************
@@ -144,7 +145,7 @@ class CurrencyListFragment : BaseFragment() {
                     val success = it.response as Response.Success
                     mFavouriteCurrency = success.data
                     if (!mErrorGettingInfoFromServer) {
-                        getCurrencyRates(mFavouriteCurrency.currencyName)
+                        getCurrencyRates(mFavouriteCurrency)
                     }
                 }
                 is LoadingGetFavouriteCurrencyState -> {
@@ -189,7 +190,7 @@ class CurrencyListFragment : BaseFragment() {
         if (currencyListResponse == null || currencyListResponse.currencyList.isNullOrEmpty()) {
             fragment_currency_list_swipe_refresh_rv.visibility = View.GONE
             fragment_currency_list_layout_empty.visibility = View.VISIBLE
-            fragment_currency_list_layout_tv_status.text = getString(es.jarroyo.revolut.R.string.books_search_not_found)
+            fragment_currency_list_layout_tv_status.text = getString(es.jarroyo.revolut.R.string.currency_search_not_found)
         } else {
 
             //val dateString = DateUtils.formatDateTime(context, System.currentTimeMillis(), DateUtils.FORMAT_SHOW_TIME)

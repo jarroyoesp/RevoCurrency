@@ -7,6 +7,7 @@
                 android:layout_marginTop="@dimen/general_space"
                 android:paddingLeft="@dimen/general_padding"
                 android:paddingRight="@dimen/general_padding"
+                android:gravity="center_vertical"
                 android:background="?attr/selectableItemBackground">
 
     <ImageView
@@ -22,12 +23,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="left"
-            android:layout_centerVertical="true"
             android:layout_toRightOf="@+id/item_rv_currency_iv_flag"
             android:textColor="@color/gray"
             android:layout_marginLeft="@dimen/general_padding"
             android:textStyle="bold"
             android:textSize="18sp"/>
+
+    <TextView
+            android:id="@+id/item_rv_currency_tv_name_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:layout_toRightOf="@+id/item_rv_currency_iv_flag"
+            android:textColor="@color/gray"
+            android:layout_marginLeft="@dimen/general_padding"
+            android:layout_below="@+id/item_rv_currency_tv_name"
+            android:textSize="16sp"/>
 
     <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/item_rv_currency_et_amount"

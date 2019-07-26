@@ -11,6 +11,7 @@ import com.nhaarman.mockitokotlin2.whenever
 import es.jarroyo.revolut.domain.model.Response
 import es.jarroyo.revolut.domain.model.currency.Currency
 import es.jarroyo.revolut.domain.model.currency.CurrencyListResponse
+import es.jarroyo.revolut.domain.model.currency.Rates
 import es.jarroyo.revolut.domain.usecase.currency.getCurrencyList.GetCurrencyListRequest
 import es.jarroyo.revolut.domain.usecase.currency.getCurrencyList.GetCurrencyListUseCase
 import es.jarroyo.revolut.domain.usecase.currency.getFavouriteCurrency.GetFavouriteCurrencyUseCase
@@ -80,10 +81,10 @@ class CurrencyViewModelTest {
     fun `should request currencyList when call getCurrencyList()`() {
         runBlocking {
             val response = Response.Success(createResponse())
-            val request = GetCurrencyListRequest("EUR")
+            val request = GetCurrencyListRequest(Currency("EUR", currencyText = "Euro"))
             whenever(getCurrencyListUseCase.execute(request)).thenReturn(response)
 
-            viewModel.getCurrencyList("EUR")
+            viewModel.getCurrencyList(Currency("EUR"))
             Mockito.verify(getCurrencyListUseCase, Mockito.times(1)).execute()
         }
     }
@@ -95,10 +96,10 @@ class CurrencyViewModelTest {
     fun `should success state when finish request`() {
         runBlocking {
             val response = Response.Success(createResponse())
-            val request = GetCurrencyListRequest("EUR")
+            val request = GetCurrencyListRequest(Currency("EUR", currencyText = "Euro"))
             whenever(getCurrencyListUseCase.execute(request)).thenReturn(response)
 
-            viewModel.getCurrencyList("EUR")
+            viewModel.getCurrencyList(Currency("EUR"))
 
             assertThat(viewModel.getCurrencyListStateLiveData.value, instanceOf(SuccessGetCurrencyListState::class.java))
         }
@@ -112,10 +113,10 @@ class CurrencyViewModelTest {
     fun `should error state when no internet`() {
         runBlocking {
             val response = Response.Error(IllegalAccessException())
-            val request = GetCurrencyListRequest("EUR")
+            val request = GetCurrencyListRequest(Currency("EUR", flagDrawable = Rates.getFlag("EUR"),currencyText = "Euro"))
             whenever(getCurrencyListUseCase.execute(request)).thenReturn(response)
 
-            viewModel.getCurrencyList("EUR")
+            viewModel.getCurrencyList(Currency("EUR"))
 
             assertThat(viewModel.getCurrencyListStateLiveData.value, instanceOf(ErrorGetCurrencyListState::class.java))
         }

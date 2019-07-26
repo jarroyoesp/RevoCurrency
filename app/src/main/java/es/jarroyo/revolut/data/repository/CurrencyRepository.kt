@@ -19,14 +19,14 @@ class CurrencyRepository(
     val TAG = CurrencyRepository::class.java.simpleName
 
     /***********************************************************************************************
-     * GET CURENCY LIST
+     * GET CURRENCY LIST
      **********************************************************************************************/
     suspend fun getCurrencyList(request: GetCurrencyListRequest): Response<CurrencyListResponse> {
-        return networkDataSource.getCurrencyList(request.query)
+        return networkDataSource.getCurrencyList(request.currency)
     }
 
     /***********************************************************************************************
-     * GET CURENCY FAVOURITE
+     * GET CURRENCY FAVOURITE
      **********************************************************************************************/
     suspend fun getFavouriteCurrency(): Response<Currency> {
         var currency = cacheDataSource.mFavouriteCurrency
@@ -35,7 +35,7 @@ class CurrencyRepository(
             if (currencyEntity != null) {
                 currency = CurrencyEntity.toModel(currencyEntity)
             } else {
-                currency = Currency(currencyName = "EUR")
+                currency = Currency(currencyName = "EUR", currencyText = "Euro")
                 insertFavouriteCurrency(InsertFavouriteCurrencyRequest(currency))
             }
         }
@@ -43,7 +43,7 @@ class CurrencyRepository(
     }
 
     /***********************************************************************************************
-     * INSERT CURENCY FAVOURITE
+     * INSERT CURRENCY FAVOURITE
      **********************************************************************************************/
     suspend fun insertFavouriteCurrency(request: InsertFavouriteCurrencyRequest): Response.Success<Currency> {
         cacheDataSource.mFavouriteCurrency = request.currency

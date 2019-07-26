@@ -35,10 +35,10 @@ class CurrencyViewModel
     /**
      * GET CURRENCY LIST
      */
-    fun getCurrencyList(query: String) = launchSilent(coroutineContext, job) {
+    fun getCurrencyList(currency: Currency) = launchSilent(coroutineContext, job) {
         getCurrencyListStateLiveData.postValue(LoadingGetCurrencyListState())
 
-        val request = GetCurrencyListRequest(query)
+        val request = GetCurrencyListRequest(currency)
         val response = getCurrencyListUseCase.execute(request)
         processCurrencyListResponse(response)
     }

@@ -91,6 +91,7 @@ class CurrencyListRVAdapter(
 
             // TITLE
             item_rv_currency_tv_name.text = currency.currencyName
+            item_rv_currency_tv_name_detail.text = currency.currencyText
             item_rv_currency_et_amount.setTextColor(ContextCompat.getColor(context, R.color.colorPrimary))
             if (item_rv_currency_et_amount.text.isNullOrEmpty()) {
                 item_rv_currency_et_amount.setText(amount.toString())
@@ -131,6 +132,7 @@ class CurrencyListRVAdapter(
 
             // TITLE
             item_rv_currency_tv_name.text = currency.currencyName
+            item_rv_currency_tv_name_detail.text = currency.currencyText
             item_rv_currency_et_amount.setTextColor(ContextCompat.getColor(context, R.color.gray))
             item_rv_currency_iv_flag.loadRoundedUrl(context, currency.flagDrawable)
 

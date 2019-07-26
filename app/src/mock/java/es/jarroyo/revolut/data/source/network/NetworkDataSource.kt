@@ -18,10 +18,10 @@ class NetworkDataSource(private val context: Context,
     /**
      * GET CURRENCY LIST
      */
-    override suspend fun getCurrencyList(query: String): Response<CurrencyListResponse> {
+    override suspend fun getCurrencyList(currency: Currency): Response<CurrencyListResponse> {
         delay(500)
         val response = CurrencyListFactory.createCurrencyListResponse1(context)
-        response.currencyList.add(0, Currency(query, 1.0))
+        response.currencyList.add(0, currency)
         return Response.Success(response)
     }
 

@@ -13,10 +13,11 @@ data class CurrencyListResponse(
 data class Currency(
     val currencyName: String,
     val value: Double = 0.0,
-    val flagDrawable: Int = R.drawable.eur) {
+    val flagDrawable: Int = R.drawable.eur,
+    val currencyText: String = "") {
     companion object {
         fun toEntity(currency: Currency): CurrencyEntity {
-            return CurrencyEntity(currencyName = currency.currencyName)
+            return CurrencyEntity(currencyName = currency.currencyName, currencyText = currency.currencyText)
         }
     }
 }
@@ -107,103 +108,103 @@ data class Rates(
     fun ratesToRateList(): MutableList<Currency> {
         var rateList = arrayListOf<Currency>()
 
-        var rateAud = Currency("AUD", AUD, getFlag("AUD"))
+        var rateAud = Currency("AUD", AUD, getFlag("AUD"), "Australian Dollar")
         rateList.add(rateAud)
 
-        var rateBGN = Currency("BGN", BGN, getFlag("BGN"))
+        var rateBGN = Currency("BGN", BGN, getFlag("BGN"), "Bulgarian lev")
         rateList.add(rateBGN)
 
-        var rateBRL = Currency("BRL", BRL, getFlag("BRL"))
+        var rateBRL = Currency("BRL", BRL, getFlag("BRL"), "Brazilian real")
         rateList.add(rateBRL)
 
-        var rateCAD = Currency("CAD", CAD, getFlag("CAD"))
+        var rateCAD = Currency("CAD", CAD, getFlag("CAD"), "Canadian dollar")
         rateList.add(rateCAD)
 
-        var rateCHF = Currency("CHF", CHF, getFlag("CHF"))
+        var rateCHF = Currency("CHF", CHF, getFlag("CHF"), "Swiss franc")
         rateList.add(rateCHF)
 
-        var rateCNY = Currency("CNY", CNY, getFlag("CNY"))
+        var rateCNY = Currency("CNY", CNY, getFlag("CNY"), "Renminbi")
         rateList.add(rateCNY)
 
-        var rateCZK = Currency("CZK", CZK, getFlag("CZK"))
+        var rateCZK = Currency("CZK", CZK, getFlag("CZK"),"Czech koruna")
         rateList.add(rateCZK)
 
-        var rateDKK = Currency("DKK", DKK, getFlag("DKK"))
+        var rateDKK = Currency("DKK", DKK, getFlag("DKK"), "Danish krone")
         rateList.add(rateDKK)
 
-        var rateEUR = Currency("EUR", EUR, getFlag("EUR"))
+        var rateEUR = Currency("EUR", EUR, getFlag("EUR"), "Euro")
         rateList.add(rateEUR)
 
-        var rateGBP = Currency("GBP", GBP, getFlag("GBP"))
+        var rateGBP = Currency("GBP", GBP, getFlag("GBP"), "Pound sterling")
         rateList.add(rateGBP)
 
-        var rateHKD = Currency("HKD", HKD, getFlag("HKD"))
+        var rateHKD = Currency("HKD", HKD, getFlag("HKD"), "Hong Kong dollar")
         rateList.add(rateHKD)
 
-        var rateHRK = Currency("HRK", HRK, getFlag("HRK"))
+        var rateHRK = Currency("HRK", HRK, getFlag("HRK"), "Croatian kuna")
         rateList.add(rateHRK)
 
-        var rateHUF = Currency("HUF", HUF, getFlag("HUF"))
+        var rateHUF = Currency("HUF", HUF, getFlag("HUF"), "Hungarian forint")
         rateList.add(rateHUF)
 
-        var rateIDR = Currency("IDR", IDR, getFlag("IDR"))
+        var rateIDR = Currency("IDR", IDR, getFlag("IDR"), "Indonesian rupiah")
         rateList.add(rateIDR)
 
-        var rateILS = Currency("ILS", ILS, getFlag("ILS"))
+        var rateILS = Currency("ILS", ILS, getFlag("ILS"), "Israeli new shekel")
         rateList.add(rateILS)
 
-        var rateINR = Currency("INR", INR, getFlag("INR"))
+        var rateINR = Currency("INR", INR, getFlag("INR"), "Indian rupee")
         rateList.add(rateINR)
 
-        var rateISK = Currency("ISK", ISK, getFlag("ISK"))
+        var rateISK = Currency("ISK", ISK, getFlag("ISK"), "Icelandic króna")
         rateList.add(rateISK)
 
-        var rateJPY = Currency("JPY", JPY, getFlag("JPY"))
+        var rateJPY = Currency("JPY", JPY, getFlag("JPY"),"Japanese yen")
         rateList.add(rateJPY)
 
-        var rateKRW = Currency("KRW", KRW, getFlag("KRW"))
+        var rateKRW = Currency("KRW", KRW, getFlag("KRW"), "South Korean won")
         rateList.add(rateKRW)
 
-        var rateMXN = Currency("MXN", MXN, getFlag("MXN"))
+        var rateMXN = Currency("MXN", MXN, getFlag("MXN"), "Mexican peso")
         rateList.add(rateMXN)
 
-        var rateMYR = Currency("MYR", MYR, getFlag("MYR"))
+        var rateMYR = Currency("MYR", MYR, getFlag("MYR"), "Malaysian ringgit")
         rateList.add(rateMYR)
 
-        var rateNOK = Currency("NOK", NOK, getFlag("NOK"))
+        var rateNOK = Currency("NOK", NOK, getFlag("NOK"), "Norwegian krone")
         rateList.add(rateNOK)
 
-        var rateNZD = Currency("NZD", NZD, getFlag("NZD"))
+        var rateNZD = Currency("NZD", NZD, getFlag("NZD"), "New Zealand dollar")
         rateList.add(rateNZD)
 
-        var ratePHP = Currency("PHP", PHP, getFlag("PHP"))
+        var ratePHP = Currency("PHP", PHP, getFlag("PHP"), "Philippine peso")
         rateList.add(ratePHP)
 
-        var ratePLN = Currency("PLN", PLN, getFlag("PLN"))
+        var ratePLN = Currency("PLN", PLN, getFlag("PLN"), "Polish złoty")
         rateList.add(ratePLN)
 
-        var rateRON = Currency("RON", RON, getFlag("RON"))
+        var rateRON = Currency("RON", RON, getFlag("RON"), "Romanian leu")
         rateList.add(rateRON)
 
-        var rateRUB = Currency("RUB", RUB, getFlag("RUB"))
+        var rateRUB = Currency("RUB", RUB, getFlag("RUB"), "Russian ruble")
         rateList.add(rateRUB)
 
-        var rateSEK = Currency("SEK", SEK, getFlag("SEK"))
+        var rateSEK = Currency("SEK", SEK, getFlag("SEK"), "Swedish krona")
         rateList.add(rateSEK)
 
-        var rateSGD = Currency("SGD", SGD, getFlag("SGD"))
+        var rateSGD = Currency("SGD", SGD, getFlag("SGD"), "Singapore dollar")
         rateList.add(rateSGD)
 
-        var rateTHB = Currency("THB", THB, getFlag("THB"))
+        var rateTHB = Currency("THB", THB, getFlag("THB"), "Thai baht")
         rateList.add(rateTHB)
 
-        var rateTRY = Currency("TRY", TRY, getFlag("TRY"))
+        var rateTRY = Currency("TRY", TRY, getFlag("TRY"), "Turkish lira")
         rateList.add(rateTRY)
 
-        var rateUSD = Currency("USD", USD, getFlag("USD"))
+        var rateUSD = Currency("USD", USD, getFlag("USD"), "US Dollar")
         rateList.add(rateUSD)
 
-        var rateZAR = Currency("ZAR", ZAR, getFlag("ZAR"))
+        var rateZAR = Currency("ZAR", ZAR, getFlag("ZAR"), "South African rand")
         rateList.add(rateZAR)
 
 

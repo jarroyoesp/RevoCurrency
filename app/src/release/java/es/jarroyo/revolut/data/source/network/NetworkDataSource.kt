@@ -25,19 +25,19 @@ class NetworkDataSource(val context: Context, private val networkSystem: Network
     /**
      * GET CURRENCY LIST
      */
-    override suspend fun getCurrencyList(query: String): Response<CurrencyListResponse> {
+    override suspend fun getCurrencyList(currency: Currency): Response<CurrencyListResponse> {
         if (networkSystem.isNetworkAvailable()) {
             val revolutCurrencyAPI = initRetrofitRevolutAPI()
             try {
                 val response =
-                    revolutCurrencyAPI.getCurrencyList(query)
+                    revolutCurrencyAPI.getCurrencyList(currency.currencyName)
                         .await()
 
                 var rateList = response.rates.ratesToRateList()
-                rateList = rateList.filter { currency -> !currency.currencyName.equals(query) } as MutableList<Currency>
+                rateList = rateList.filter { currencyFilter -> !currencyFilter.currencyName.equals(currency.currencyName) } as MutableList<Currency>
                 response.currencyList = rateList
 
-                response.currencyList.add(0, Currency(query, 1.0, Rates.getFlag(query)))
+                response.currencyList.add(0, currency)
 
                 return Response.Success(response)
             } catch (e: Exception) {

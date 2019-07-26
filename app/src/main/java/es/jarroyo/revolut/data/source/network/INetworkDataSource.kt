@@ -1,6 +1,7 @@
 package es.jarroyo.revolut.data.source.network
 
 import es.jarroyo.revolut.domain.model.Response
+import es.jarroyo.revolut.domain.model.currency.Currency
 import es.jarroyo.revolut.domain.model.currency.CurrencyListResponse
 import es.jarroyo.revolut.utils.NetworkSystemAbstract
 
@@ -9,7 +10,7 @@ open abstract class INetworkDataSource(private val networkSystem: NetworkSystemA
      /**
      * CURRENCY LIST
      */
-    abstract suspend fun getCurrencyList(query: String): Response<CurrencyListResponse>
+    abstract suspend fun getCurrencyList(currency: Currency): Response<CurrencyListResponse>
 
 
 }
