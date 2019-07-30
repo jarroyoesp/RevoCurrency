@@ -1,11 +1,9 @@
 package es.jarroyo.revolut.ui.viewmodel
 
-import android.content.Context
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LifecycleRegistry
-import androidx.lifecycle.Observer
 import com.google.gson.Gson
 import com.nhaarman.mockitokotlin2.whenever
 import es.jarroyo.revolut.domain.model.Response
@@ -16,7 +14,10 @@ import es.jarroyo.revolut.domain.usecase.currency.getCurrencyList.GetCurrencyLis
 import es.jarroyo.revolut.domain.usecase.currency.getCurrencyList.GetCurrencyListUseCase
 import es.jarroyo.revolut.domain.usecase.currency.getFavouriteCurrency.GetFavouriteCurrencyUseCase
 import es.jarroyo.revolut.domain.usecase.currency.insertFavouriteCurrency.InsertFavouriteCurrencyUseCase
-import es.jarroyo.revolut.ui.viewmodel.currency.*
+import es.jarroyo.revolut.ui.viewmodel.currency.CurrencyViewModel
+import es.jarroyo.revolut.ui.viewmodel.currency.ErrorGetCurrencyListState
+import es.jarroyo.revolut.ui.viewmodel.currency.SuccessGetCurrencyListState
+import es.jarroyo.revolut.ui.viewmodel.currency.SuccessGetFavouriteCurrencyState
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.runBlocking
 import org.hamcrest.CoreMatchers.instanceOf
@@ -52,16 +53,9 @@ class CurrencyViewModelTest {
     lateinit var insertFavouriteCurrencyUseCase: InsertFavouriteCurrencyUseCase
 
     @Mock
-    lateinit var observer: Observer<GetCurrencyListState>
-
-    @Mock
     lateinit var lifeCycleOwner: LifecycleOwner
 
     lateinit var lifeCycle: LifecycleRegistry
-
-    @Mock
-    lateinit var mContext: Context
-
 
     @Before
     fun setUp() {

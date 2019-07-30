@@ -32,6 +32,4 @@ open class App : MultiDexApplication() {
         }
         LeakCanary.install(this)
     }
-
-    fun getApplicationComponent() = graph
 }

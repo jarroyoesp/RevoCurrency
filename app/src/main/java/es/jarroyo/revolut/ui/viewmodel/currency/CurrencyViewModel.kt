@@ -11,7 +11,6 @@ import es.jarroyo.revolut.domain.usecase.currency.getFavouriteCurrency.GetFavour
 import es.jarroyo.revolut.domain.usecase.currency.insertFavouriteCurrency.InsertFavouriteCurrencyRequest
 import es.jarroyo.revolut.domain.usecase.currency.insertFavouriteCurrency.InsertFavouriteCurrencyUseCase
 import es.jarroyo.revolut.utils.launchSilent
-import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Job
 import javax.inject.Inject
 import kotlin.coroutines.CoroutineContext
@@ -94,8 +93,6 @@ class CurrencyViewModel
         processFavouriteCurrencyResponse(response)
     }
 
-    private val exceptionHandler = CoroutineExceptionHandler { coroutineContext, throwable ->
-    }
 
     override fun onCleared() {
         super.onCleared()

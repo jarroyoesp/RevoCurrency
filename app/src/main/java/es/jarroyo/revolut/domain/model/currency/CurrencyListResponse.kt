@@ -58,9 +58,6 @@ data class Rates(
     val ZAR: Double
 ) {
     companion object {
-        // PATH
-        const val CURRENCY_LIST_SIZE = 31
-
         fun getFlag(currencyId: String): Int {
             var drawableInt = R.drawable.eur
             when(currencyId) {

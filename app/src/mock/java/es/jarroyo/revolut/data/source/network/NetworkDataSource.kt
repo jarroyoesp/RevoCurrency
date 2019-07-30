@@ -14,7 +14,7 @@ import java.io.IOException
 
 class NetworkDataSource(private val context: Context,
                         private val networkSystem: NetworkSystemAbstract
-) : INetworkDataSource(networkSystem) {
+) : INetworkDataSource() {
     /**
      * GET CURRENCY LIST
      */

@@ -1,8 +1,6 @@
 package es.jarroyo.revolut.utils
 
-import android.content.Context
-
-open class TestNetworkSystem(private val appContext : Context): NetworkSystemAbstract() {
+open class TestNetworkSystem(): NetworkSystemAbstract() {
 
     companion object {
         var mIsNetworkAvailable = true

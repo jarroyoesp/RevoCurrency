@@ -15,9 +15,6 @@ class CurrencyRepository(
     private val diskDataSource: DiskDataSource,
     private val networkDataSource: INetworkDataSource
 ) {
-
-    val TAG = CurrencyRepository::class.java.simpleName
-
     /***********************************************************************************************
      * GET CURRENCY LIST
      **********************************************************************************************/

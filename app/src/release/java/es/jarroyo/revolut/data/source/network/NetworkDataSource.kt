@@ -20,7 +20,7 @@ import javax.net.ssl.SSLSession
 
 
 class NetworkDataSource(val context: Context, private val networkSystem: NetworkSystemAbstract) :
-    INetworkDataSource(networkSystem) {
+    INetworkDataSource() {
 
     /**
      * GET CURRENCY LIST

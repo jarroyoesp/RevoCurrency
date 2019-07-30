@@ -13,10 +13,6 @@ interface RevolutCurrencyAPI {
 
         // PARAMETERS
         const val URL_PARAMETER_BASE = "base"
-        const val URL_PARAMETER_MAX_RESULTS = "maxResults"
-        const val URL_PARAMETER_CITY_NAME = "q"
-        const val URL_PARAMETER_API_KEY = "key"
-        const val URL_PARAMETER_UNITS = "units"
     }
 
     /**
