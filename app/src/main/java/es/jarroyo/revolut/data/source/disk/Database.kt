@@ -10,13 +10,13 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 import es.jarroyo.revolut.data.entity.CurrencyEntity
 import es.jarroyo.revolut.data.source.disk.dao.CurrencyDao
 
-@Database(entities = arrayOf(CurrencyEntity::class), version = 2)
+@Database(entities = [CurrencyEntity::class], version = 2)
 abstract class Database : RoomDatabase() {
 
     abstract fun mCurrencyDao(): CurrencyDao
 
     companion object {
-        private val DATABASE_NAME: String = "RevolutCurrency_db"
+        private const val DATABASE_NAME: String = "RevolutCurrency_db"
 
         @JvmField
         val MIGRATION_1_2 = Migration1To2()

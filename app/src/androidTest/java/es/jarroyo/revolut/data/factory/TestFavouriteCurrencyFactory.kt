@@ -5,7 +5,7 @@ import es.jarroyo.revolut.domain.model.currency.Currency
 class TestFavouriteCurrencyFactory {
 
     companion object {
-        val FAVOURITE_CURRENCY_NAME = "EUR"
+        private const val FAVOURITE_CURRENCY_NAME = "EUR"
 
 
         fun createFavouriteCurrency(): Currency {

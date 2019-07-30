@@ -11,13 +11,9 @@ import com.squareup.picasso.Transformation
 
 class BlurTransformation (context: Context) : Transformation {
 
-        internal var rs: RenderScript
+        private var rs: RenderScript = RenderScript.create(context)
 
-        init {
-            rs = RenderScript.create(context)
-        }
-
-        override fun transform(bitmap: Bitmap): Bitmap {
+    override fun transform(bitmap: Bitmap): Bitmap {
             // Create another bitmap that will hold the results of the filter.
             val blurredBitmap = Bitmap.createBitmap(bitmap)
 

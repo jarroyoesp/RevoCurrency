@@ -42,7 +42,7 @@ class CurrencyViewModel
         processCurrencyListResponse(response)
     }
 
-    fun processCurrencyListResponse(response: Response<CurrencyListResponse>){
+    private fun processCurrencyListResponse(response: Response<CurrencyListResponse>){
         if (response is Response.Success) {
             getCurrencyListStateLiveData.postValue(
                 SuccessGetCurrencyListState(

@@ -18,7 +18,7 @@ class UtilsModule {
 
     @Provides
     @Singleton
-    fun provideCorutineContext() =
+    fun provideCoroutineContext() =
         Dispatchers.Default as CoroutineContext
 
 }

@@ -22,7 +22,6 @@ import es.jarroyo.revolut.domain.model.currency.Currency
 import es.jarroyo.revolut.domain.model.currency.CurrencyListResponse
 import es.jarroyo.revolut.ui.base.BaseFragment
 import es.jarroyo.revolut.ui.base.snackBar
-import es.jarroyo.revolut.ui.base.toast
 import es.jarroyo.revolut.ui.currencyList.fragment.adapter.CurrencyListRVAdapter
 import es.jarroyo.revolut.ui.currencyList.fragment.adapter.ItemAmount
 import es.jarroyo.revolut.ui.currencyList.fragment.adapter.ItemCurrency
@@ -33,7 +32,7 @@ import java.util.*
 import javax.inject.Inject
 
 
-val TIME_BETWEEN_UPDATES = 1000L
+const val TIME_BETWEEN_UPDATES = 1000L
 
 class CurrencyListFragment : BaseFragment() {
     override var layoutId = es.jarroyo.revolut.R.layout.fragment_currency_list
@@ -48,7 +47,7 @@ class CurrencyListFragment : BaseFragment() {
     private var mRvAdapter: CurrencyListRVAdapter? = null
 
     // TIMER
-    lateinit var mTimer: Timer
+    private lateinit var mTimer: Timer
 
     // Favourite Currency
     lateinit var mFavouriteCurrency : Currency
@@ -173,12 +172,9 @@ class CurrencyListFragment : BaseFragment() {
         fragment_currency_list_layout_tv_status.text = getString(es.jarroyo.revolut.R.string.error_generic)
 
         val error = errorGetForecastState.response as Response.Error
-        (activity as AppCompatActivity).snackBar(error.exception.message.toString(), onClickListener = object : View.OnClickListener{
-            override fun onClick(p0: View?) {
-                mErrorGettingInfoFromServer = false
-                getFavouriteCurrency()
-            }
-
+        (activity as AppCompatActivity).snackBar(error.exception.message.toString(), onClickListener = View.OnClickListener {
+            mErrorGettingInfoFromServer = false
+            getFavouriteCurrency()
         }, length = Snackbar.LENGTH_INDEFINITE)
     }
 
@@ -208,7 +204,7 @@ class CurrencyListFragment : BaseFragment() {
     }
 
     private fun updateRatesOnAdapter(currencyList: MutableList<Currency>) {
-        for (pos in 1..currencyList.size - 1) {
+        for (pos in 1 until currencyList.size) {
             mRvAdapter?.notifyItemChanged(pos)
         }
     }

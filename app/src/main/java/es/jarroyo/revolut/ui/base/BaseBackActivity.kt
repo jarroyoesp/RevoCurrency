@@ -13,7 +13,7 @@ abstract class BaseBackActivity : BaseActivity() {
         configView()
     }
 
-    fun configView(){
+    private fun configView(){
         prepareToolbar()
     }
 

@@ -12,15 +12,7 @@ import javax.inject.Singleton
 
 @Singleton
 @Component(
-    modules = arrayOf(
-        ApplicationModule::class,
-        UtilsModule::class,
-        RepositoryModule::class,
-        DataModule::class,
-        DomainModule::class,
-        ViewModelFactoryModule::class,
-        ViewModelModule::class
-    )
+    modules = [ApplicationModule::class, UtilsModule::class, RepositoryModule::class, DataModule::class, DomainModule::class, ViewModelFactoryModule::class, ViewModelModule::class]
 )
 interface ApplicationComponent {
     /**

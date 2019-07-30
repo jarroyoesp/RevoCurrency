@@ -11,9 +11,10 @@ import es.jarroyo.revolut.R
 import es.jarroyo.revolut.domain.model.currency.Currency
 import es.jarroyo.revolut.ui.base.loadRoundedUrl
 import kotlinx.android.synthetic.main.item_rv_currency.view.*
+import kotlin.math.roundToLong
 
-val TYPE_BASE = 0
-val TYPE_CURRENCY = 1
+const val TYPE_BASE = 0
+const val TYPE_CURRENCY = 1
 
 class CurrencyListRVAdapter(
     private var mCurrencyList: MutableList<Currency>? = mutableListOf(),
@@ -30,10 +31,10 @@ class CurrencyListRVAdapter(
     }
 
     override fun getItemViewType(position: Int): Int {
-        if (position == 0) {
-            return TYPE_BASE
+        return if (position == 0) {
+            TYPE_BASE
         } else {
-            return TYPE_CURRENCY
+            TYPE_CURRENCY
         }
     }
 
@@ -138,10 +139,10 @@ class CurrencyListRVAdapter(
 
             item_rv_currency_et_amount.isEnabled = false
 
-            var number3digits: Double = 0.0
+            var number3digits = 0.0
             if (amount != null && currency.value != null) {
                 val value = amount * currency.value
-                number3digits = Math.round(value * 10000.0) / 10000.0
+                number3digits = (value * 10000.0).roundToLong() / 10000.0
             }
             item_rv_currency_et_amount.setText(number3digits.toString())
 

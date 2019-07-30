@@ -1,6 +1,6 @@
 package es.jarroyo.revolut.utils
 
-open class TestNetworkSystem(): NetworkSystemAbstract() {
+open class TestNetworkSystem : NetworkSystemAbstract() {
 
     companion object {
         var mIsNetworkAvailable = true

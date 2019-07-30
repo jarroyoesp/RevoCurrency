@@ -30,7 +30,10 @@ class CurrencyListActivityTest {
 
     @Rule
     @JvmField
-    var mActivityRule = BaseActivityRule(CurrencyListActivity::class.java, true, false)
+    var mActivityRule = BaseActivityRule(CurrencyListActivity::class.java,
+        initialTouchMode = true,
+        launchActivity = false
+    )
 
 
     @Before
@@ -41,7 +44,7 @@ class CurrencyListActivityTest {
     @Test
     fun GIVEN_no_favourite_currency_WHEN_launch_app_THEN_currecy_rv_is_displayed() {
         mActivityRule.launchActivity()
-        onView(withId(es.jarroyo.revolut.R.id.fragment_currency_list_rv)).check(matches(isDisplayed()))
+        onView(withId(R.id.fragment_currency_list_rv)).check(matches(isDisplayed()))
     }
 
     @Test
@@ -108,7 +111,7 @@ class CurrencyListActivityTest {
             .check(matches(withText("16.17")))
     }
 
-    fun withRecyclerView(recyclerViewId: Int): RecyclerViewMatcher {
+    private fun withRecyclerView(recyclerViewId: Int): RecyclerViewMatcher {
         return RecyclerViewMatcher(recyclerViewId)
     }
 

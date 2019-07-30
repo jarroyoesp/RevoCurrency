@@ -1,4 +1,3 @@
 package es.jarroyo.revolut.ui
 
-open class RevolutCurrencyApp : App() {
-}
+open class RevolutCurrencyApp : App()

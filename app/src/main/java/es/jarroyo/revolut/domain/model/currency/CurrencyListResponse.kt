@@ -103,7 +103,7 @@ data class Rates(
     }
 
     fun ratesToRateList(): MutableList<Currency> {
-        var rateList = arrayListOf<Currency>()
+        val rateList = arrayListOf<Currency>()
 
         var rateAud = Currency("AUD", AUD, getFlag("AUD"), "Australian Dollar")
         rateList.add(rateAud)

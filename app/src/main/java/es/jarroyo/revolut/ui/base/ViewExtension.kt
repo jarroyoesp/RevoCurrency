@@ -61,7 +61,7 @@ fun ImageView.loadBlurUrl(context: Context,url: String) {
 
 fun AppCompatActivity.snackBar(message: String, onClickListener: View.OnClickListener? = null, length: Int = Snackbar.LENGTH_LONG) {
     //val snack = Snackbar.make(parentLayout, message, Snackbar.LENGTH_LONG)
-    val snack = com.google.android.material.snackbar.Snackbar.make(findViewById(android.R.id.content), Html.fromHtml(message), length)
+    val snack = Snackbar.make(findViewById(android.R.id.content), Html.fromHtml(message), length)
 
     // Custom Snackbar
     val layout = snack.view as Snackbar.SnackbarLayout

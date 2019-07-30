@@ -12,13 +12,6 @@ import javax.inject.Singleton
 
 
 @Singleton
-@Component(modules = arrayOf(TestApplicationModule::class,
-        TestUtilsModule::class,
-        DomainModule::class,
-        TestDataModule::class,
-        RepositoryModule::class,
-        ViewModelFactoryModule::class,
-        ViewModelModule::class)
+@Component(modules = [TestApplicationModule::class, TestUtilsModule::class, DomainModule::class, TestDataModule::class, RepositoryModule::class, ViewModelFactoryModule::class, ViewModelModule::class]
 )
-interface TestApplicationComponent: ApplicationComponent {
-}
+interface TestApplicationComponent: ApplicationComponent

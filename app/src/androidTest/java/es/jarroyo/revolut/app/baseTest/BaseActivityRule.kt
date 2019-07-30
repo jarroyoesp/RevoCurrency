@@ -10,12 +10,6 @@ import es.jarroyo.revolut.data.source.disk.DiskDataSource
 
 class BaseActivityRule<A : Activity>(activityClass: Class<A>, initialTouchMode: Boolean, launchActivity: Boolean) : ActivityTestRule<A>(activityClass, initialTouchMode, launchActivity) {
 
-    override fun beforeActivityLaunched() {
-        super.beforeActivityLaunched()
-        // Maybe prepare some mock service calls
-        // Maybe override some depency injection modules with mocks
-    }
-
     override fun getActivityIntent(): Intent {
         // add some custom extras and stuff
         return Intent()
@@ -34,10 +28,10 @@ class BaseActivityRule<A : Activity>(activityClass: Class<A>, initialTouchMode: 
     }
 
     fun launchActivity() {
-        this.launchActivity(getActivityIntent())
+        this.launchActivity(activityIntent)
     }
 
-    fun getContext(): Context {
-        return InstrumentationRegistry.getInstrumentation().getTargetContext().getApplicationContext()
+    private fun getContext(): Context {
+        return InstrumentationRegistry.getInstrumentation().targetContext.applicationContext
     }
 }

@@ -39,7 +39,7 @@ class CurrencyViewModelTest {
     @get: Rule
     var rule: TestRule = InstantTaskExecutorRule()
 
-    lateinit  var viewModel : CurrencyViewModel
+    private lateinit  var viewModel : CurrencyViewModel
 
     var coroutineContext: CoroutineContext = Dispatchers.Unconfined
 
@@ -138,9 +138,9 @@ class CurrencyViewModelTest {
 
 
     fun createResponse(): CurrencyListResponse {
-        var gson = Gson()
+        val gson = Gson()
         val json = response
-        return gson?.fromJson(json, CurrencyListResponse::class.java)
+        return gson.fromJson(json, CurrencyListResponse::class.java)
     }
 
     val response = "{\n" +

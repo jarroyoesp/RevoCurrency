@@ -1,6 +1,5 @@
 package es.jarroyo.revolut.ui.currencyList.activity
 
-import android.os.Bundle
 import es.jarroyo.revolut.R
 import es.jarroyo.revolut.app.di.component.ApplicationComponent
 import es.jarroyo.revolut.app.di.subcomponent.currencyList.activity.CurrencyListActivityModule

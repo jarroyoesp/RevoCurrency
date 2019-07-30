@@ -6,9 +6,9 @@ import es.jarroyo.revolut.domain.model.currency.CurrencyListResponse
 class TestCurrencyListFactory {
 
     fun createCurrencyListResponse1(): CurrencyListResponse {
-        var gson = Gson()
+        val gson = Gson()
         val json = mResponse
-        val response =  gson?.fromJson(json, CurrencyListResponse::class.java)
+        val response = gson.fromJson(json, CurrencyListResponse::class.java)
 
         val rateList = response.rates.ratesToRateList()
         response.currencyList = rateList
@@ -20,7 +20,7 @@ class TestCurrencyListFactory {
 
     companion object {
 
-        val FIRST_RATE_CURRENCY_NAME = "AUD"
+        const val FIRST_RATE_CURRENCY_NAME = "AUD"
 
         val mResponse = "{\n" +
                 "\t\"base\": \"EUR\",\n" +

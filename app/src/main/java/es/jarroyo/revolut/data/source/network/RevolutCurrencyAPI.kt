@@ -19,7 +19,7 @@ interface RevolutCurrencyAPI {
      * CURRENT WEATHER
      */
     @Headers("Content-Type: application/json")
-    @GET(RevolutCurrencyAPI.URL_PATH_LIST_CURRENCY)
+    @GET(URL_PATH_LIST_CURRENCY)
     fun getCurrencyList(
         @Query(URL_PARAMETER_BASE) query: String = "EUR"
     ): Deferred<CurrencyListResponse>

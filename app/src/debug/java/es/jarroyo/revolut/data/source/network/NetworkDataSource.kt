@@ -14,8 +14,6 @@ import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.io.IOException
-import javax.net.ssl.HostnameVerifier
-import javax.net.ssl.SSLSession
 
 
 class NetworkDataSource(val context: Context, private val networkSystem: NetworkSystemAbstract) :
@@ -27,20 +25,20 @@ class NetworkDataSource(val context: Context, private val networkSystem: Network
     override suspend fun getCurrencyList(currency: Currency): Response<CurrencyListResponse> {
         if (networkSystem.isNetworkAvailable()) {
             val revolutCurrencyAPI = initRetrofitRevolutAPI()
-            try {
+            return try {
                 val response =
                     revolutCurrencyAPI.getCurrencyList(currency.currencyName)
                         .await()
 
                 var rateList = response.rates.ratesToRateList()
-                rateList = rateList.filter { currencyFilter -> !currencyFilter.currencyName.equals(currency.currencyName) } as MutableList<Currency>
+                rateList = rateList.filter { currencyFilter -> currencyFilter.currencyName != currency.currencyName } as MutableList<Currency>
                 response.currencyList = rateList
 
                 response.currencyList.add(0, currency)
 
-                return Response.Success(response)
+                Response.Success(response)
             } catch (e: Exception) {
-                return Response.Error(e)
+                Response.Error(e)
             }
         } else {
             return Response.Error(NetworkConnectionException(context.getString(R.string.error_no_internet)))
@@ -56,12 +54,11 @@ class NetworkDataSource(val context: Context, private val networkSystem: Network
             addCallAdapterFactory(CoroutineCallAdapterFactory())
         }.build()
 
-        val revolutAPI = retrofit.create(RevolutCurrencyAPI::class.java)
-        return revolutAPI
+        return retrofit.create(RevolutCurrencyAPI::class.java)
     }
 
 
-    var okHttpClient = OkHttpClient.Builder()
+    private var okHttpClient = OkHttpClient.Builder()
         .addInterceptor(object : Interceptor {
             @Throws(IOException::class)
             override fun intercept(chain: Interceptor.Chain): okhttp3.Response {
@@ -75,11 +72,7 @@ class NetworkDataSource(val context: Context, private val networkSystem: Network
 
                 return response
             }
-        }).hostnameVerifier(object : HostnameVerifier {
-            override fun verify(p0: String?, p1: SSLSession?): Boolean {
-                return true
-            }
-        })
+        }).hostnameVerifier { p0, p1 -> true }
         .build()
 
 }

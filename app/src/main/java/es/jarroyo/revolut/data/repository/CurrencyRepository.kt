@@ -42,7 +42,7 @@ class CurrencyRepository(
     /***********************************************************************************************
      * INSERT CURRENCY FAVOURITE
      **********************************************************************************************/
-    suspend fun insertFavouriteCurrency(request: InsertFavouriteCurrencyRequest): Response.Success<Currency> {
+    fun insertFavouriteCurrency(request: InsertFavouriteCurrencyRequest): Response.Success<Currency> {
         cacheDataSource.mFavouriteCurrency = request.currency
         diskDataSource.insertCurrency(Currency.toEntity(request.currency))
         return Response.Success(request.currency)
