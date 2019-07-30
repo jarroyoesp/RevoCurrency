@@ -19,7 +19,6 @@ class DiskDataSource(appContext: Context) {
      **********************************************************************************************/
     fun insertCurrency(currencyEntity: CurrencyEntity) = database?.mCurrencyDao()?.insert(currencyEntity)
     fun getCurrency() = database?.mCurrencyDao()?.getFavouriteCurrency()
-    fun deleteCurrency(currencyEntity: CurrencyEntity) = database?.mCurrencyDao()?.delete(currencyEntity)
 
 
     /***********************************************************************************************

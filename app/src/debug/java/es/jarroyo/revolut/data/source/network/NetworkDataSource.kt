@@ -72,7 +72,7 @@ class NetworkDataSource(val context: Context, private val networkSystem: Network
 
                 return response
             }
-        }).hostnameVerifier { p0, p1 -> true }
+        })
         .build()
 
 }

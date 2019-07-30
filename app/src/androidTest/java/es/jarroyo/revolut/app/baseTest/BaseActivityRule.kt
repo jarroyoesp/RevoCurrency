@@ -15,11 +15,6 @@ class BaseActivityRule<A : Activity>(activityClass: Class<A>, initialTouchMode: 
         return Intent()
     }
 
-    override fun afterActivityLaunched() {
-        super.afterActivityLaunched()
-        // maybe you want to do something here
-    }
-
     override fun afterActivityFinished() {
         // super.afterActivityFinshed()
         // Clean up mocks

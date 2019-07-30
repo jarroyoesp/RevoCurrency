@@ -15,13 +15,15 @@
 
 
     <FrameLayout
-            android:id="@+id/activity_home_layout_main"
+            android:id="@+id/activity_currency_list_layout_main"
             android:layout_width="match_parent"
             android:layout_below="@+id/activity_currency_list_toolbar"
             android:layout_height="match_parent">
-        <fragment android:layout_width="match_parent"
-                  android:layout_height="match_parent"
-                  android:name="es.jarroyo.revolut.ui.currencyList.fragment.CurrencyListFragment"></fragment>
+        <fragment
+                android:id="@+id/activity_currency_list_fragment_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:name="es.jarroyo.revolut.ui.currencyList.fragment.CurrencyListFragment"></fragment>
 
     </FrameLayout>
 

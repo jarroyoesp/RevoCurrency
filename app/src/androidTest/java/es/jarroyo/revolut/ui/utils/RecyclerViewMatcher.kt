@@ -18,7 +18,7 @@ class RecyclerViewMatcher(private val recyclerViewId: Int) {
 
         return object : TypeSafeMatcher<View>() {
             var resources: Resources? = null
-            internal var childView: View? = null
+            var childView: View? = null
 
             override fun describeTo(description: Description) {
                 var idDescription = recyclerViewId.toString()
@@ -42,7 +42,7 @@ class RecyclerViewMatcher(private val recyclerViewId: Int) {
                 this.resources = view.resources
 
                 if (childView == null) {
-                    val recyclerView = view.getRootView().findViewById(recyclerViewId) as RecyclerView
+                    val recyclerView = view.rootView.findViewById(recyclerViewId) as RecyclerView
                     if (recyclerView != null && recyclerView.id == recyclerViewId) {
                         childView = recyclerView.findViewHolderForAdapterPosition(position)?.itemView
                     } else {

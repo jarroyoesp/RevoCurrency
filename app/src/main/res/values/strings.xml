@@ -2,14 +2,9 @@
     <string name="app_name">Revolut Currency</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="retry">Retry</string>
-    <string name="loading">Loading</string>
-    <string name="search">Search</string>
 
     <string name="updating_data">Updating data...</string>
-    <string name="try_again">Try again</string>
-    <string name="task_list_empty">Empty data</string>
     <string name="error_generic">Something was wrong getting currency data.</string>
     <string name="currency_search_not_found">Uhhhm.... sorry no results found</string>
     <string name="be_careful_your_rates_are_not_updated">Be careful, your rates are not updated!</string>

@@ -25,7 +25,7 @@ class CurrencyRepository(
     /***********************************************************************************************
      * GET CURRENCY FAVOURITE
      **********************************************************************************************/
-    suspend fun getFavouriteCurrency(): Response<Currency> {
+     fun getFavouriteCurrency(): Response<Currency> {
         var currency = cacheDataSource.mFavouriteCurrency
         if (currency == null) {
             val currencyEntity = diskDataSource.getCurrency()

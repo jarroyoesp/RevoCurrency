@@ -32,7 +32,6 @@
 
 
     <RelativeLayout
-            android:id="@+id/fragment_currency_list_layout_rv"
             android:layout_width="match_parent"
             android:layout_below="@+id/fragment_currency_list_layout_no_updated"
             android:layout_height="match_parent">

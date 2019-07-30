@@ -52,7 +52,7 @@ class CurrencyListActivityTest {
         TestNetworkSystem.mIsNetworkAvailable = false
         mActivityRule.launchActivity()
 
-        onView(withId(es.jarroyo.revolut.R.id.fragment_currency_list_layout_no_updated)).check(matches(isDisplayed()))
+        onView(withId(R.id.fragment_currency_list_layout_no_updated)).check(matches(isDisplayed()))
 
         TestNetworkSystem.mIsNetworkAvailable = true
     }
