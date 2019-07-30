@@ -12,7 +12,7 @@ object Utils {
         val buf = StringBuilder()
         val json: InputStream
         try {
-            json = context.getAssets().open(fileName)
+            json = context.assets.open(fileName)
 
             val bufferIn = BufferedReader(InputStreamReader(json, "UTF-8"))
             var str: String

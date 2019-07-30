@@ -3,7 +3,7 @@ package es.jarroyo.revolut.domain.usecase.base
 import es.jarroyo.revolut.domain.model.Response
 import kotlinx.coroutines.channels.Channel
 
-abstract class BaseUseCase<R : BaseRequest, T>() {
+abstract class BaseUseCase<R : BaseRequest, T> {
 
     var request: R? = null
     private var channel= Channel<Response<T>>(Channel.UNLIMITED)

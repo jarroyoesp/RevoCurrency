@@ -14,11 +14,4 @@ class CurrencyListActivity : BaseActivity() {
         applicationComponent.plus(CurrencyListActivityModule(this)).injectTo(this)
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
-    override fun onResume() {
-        super.onResume()
-    }
 }

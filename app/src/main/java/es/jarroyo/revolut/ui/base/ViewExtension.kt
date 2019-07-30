@@ -40,9 +40,9 @@ fun Fragment.toast(message: String?, duration: Int = Toast.LENGTH_SHORT) {
 fun TextView.setHtmlText(text: String?) {
     if (text != null) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            this.setText(Html.fromHtml(text, Html.FROM_HTML_MODE_LEGACY))
+            this.text = Html.fromHtml(text, Html.FROM_HTML_MODE_LEGACY)
         } else {
-            this.setText(Html.fromHtml(text))
+            this.text = Html.fromHtml(text)
         }
         this.movementMethod = LinkMovementMethod.getInstance()
     }
@@ -64,7 +64,7 @@ fun AppCompatActivity.snackBar(message: String, onClickListener: View.OnClickLis
     val snack = com.google.android.material.snackbar.Snackbar.make(findViewById(android.R.id.content), Html.fromHtml(message), length)
 
     // Custom Snackbar
-    val layout = snack.getView() as Snackbar.SnackbarLayout
+    val layout = snack.view as Snackbar.SnackbarLayout
 
     // Background
     layout.setBackgroundColor(ContextCompat.getColor(this, R.color.colorAccent))

@@ -5,6 +5,4 @@ import es.jarroyo.revolut.app.di.module.ActivityModule
 import es.jarroyo.revolut.ui.currencyList.activity.CurrencyListActivity
 
 @Module
-class CurrencyListActivityModule(activity: CurrencyListActivity) : ActivityModule(activity) {
-
-}
+class CurrencyListActivityModule(activity: CurrencyListActivity) : ActivityModule(activity)

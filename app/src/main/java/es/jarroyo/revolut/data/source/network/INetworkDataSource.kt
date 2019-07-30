@@ -4,7 +4,7 @@ import es.jarroyo.revolut.domain.model.Response
 import es.jarroyo.revolut.domain.model.currency.Currency
 import es.jarroyo.revolut.domain.model.currency.CurrencyListResponse
 
-open abstract class INetworkDataSource() {
+open abstract class INetworkDataSource {
 
      /**
      * CURRENCY LIST

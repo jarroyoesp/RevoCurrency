@@ -4,6 +4,4 @@ import dagger.Module
 import es.jarroyo.revolut.ui.currencyList.fragment.CurrencyListFragment
 
 @Module
-class CurrencyListFragmentModule(val fragment: CurrencyListFragment) {
-
-}
+class CurrencyListFragmentModule(val fragment: CurrencyListFragment)

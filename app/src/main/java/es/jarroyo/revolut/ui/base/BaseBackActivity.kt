@@ -27,7 +27,7 @@ abstract class BaseBackActivity : BaseActivity() {
         if (supportActionBar != null) {
             supportActionBar!!.setDisplayHomeAsUpEnabled(true)
             supportActionBar!!.setDisplayShowHomeEnabled(true)
-            supportActionBar!!.setTitle("")
+            supportActionBar!!.title = ""
             val upArrow = ContextCompat.getDrawable(this, R.drawable.ic_back_button)
             supportActionBar!!.setHomeAsUpIndicator(upArrow)
         }
