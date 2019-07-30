@@ -18,12 +18,11 @@ class DataModule {
     fun provideCacheSource() =
         CacheDataSource
 
-    @Provides @Singleton
+    @Provides
     fun provideNetworkDataSource(appContext: App, networkSystemBase: NetworkSystemAbstract) =
             NetworkDataSource(appContext, networkSystemBase) as INetworkDataSource
 
     @Provides
-    @Singleton
     fun provideDiskDataSource(appContext: App) =
         DiskDataSource(appContext)
 }

@@ -6,12 +6,10 @@ import es.jarroyo.revolut.data.repository.CurrencyRepository
 import es.jarroyo.revolut.data.source.cache.CacheDataSource
 import es.jarroyo.revolut.data.source.disk.DiskDataSource
 import es.jarroyo.revolut.data.source.network.INetworkDataSource
-import javax.inject.Singleton
 
 @Module
 class RepositoryModule {
     @Provides
-    @Singleton
     fun provideCurrencyRepository(
         cacheDataSource: CacheDataSource,
         diskDataSource: DiskDataSource,
