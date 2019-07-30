@@ -13,10 +13,10 @@ import java.io.IOException
 
 class TestNetworkDataSource(private val networkSystem: NetworkSystemAbstract) : INetworkDataSource(networkSystem) {
 
-    override suspend fun getCurrencyList(query: String): Response<CurrencyListResponse> {
+    override suspend fun getCurrencyList(currency: Currency): Response<CurrencyListResponse> {
         if (networkSystem.isNetworkAvailable()) {
             val response = TestCurrencyListFactory().createCurrencyListResponse1()
-            response.currencyList.add(0, Currency(query, 1.0))
+            response.currencyList.add(0, currency)
             return Response.Success(response)
         } else {
             return Response.Error(NetworkErrorException())
